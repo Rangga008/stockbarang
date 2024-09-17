@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Halaman Smooth dengan GSAP</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+		<style>
+			body {
+				opacity: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Selamat datang di halaman dengan transisi smooth menggunakan GSAP</h1>
+
+		<script>
+			// Fade in saat halaman dimuat
+			window.addEventListener("load", function () {
+				gsap.to("body", { opacity: 1, duration: 1 });
+			});
+
+			// Fungsi untuk redirect smooth
+			function smoothRedirect(url) {
+				gsap.to("body", {
+					opacity: 0,
+					duration: 1,
+					onComplete: function () {
+						window.location.href = url;
+					},
+				});
+			}
+		</script>
+
+		<!-- Button untuk redirect -->
+		<button onclick="smoothRedirect('halamanlain.html')">
+			Pindah ke Halaman Lain
+		</button>
+	</body>
+</html>
